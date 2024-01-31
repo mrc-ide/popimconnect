@@ -38,7 +38,7 @@ vip_pop_3d <- function(region = character(),
                      vacc_data = vacc_data,
                      pop_data = pop_data)
 
-    class(pop_wide) <- "vip_population_3d"
+    class(pop_wide) <- c("vip_population_3d", "list")
 
     pop_wide
 }
