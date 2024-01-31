@@ -1,6 +1,6 @@
-assert_vip_pop_wide <- function(x, name = deparse(substitute(x))) {
-    if(!class(x) == "vip_population_wide")
-        stop(sprintf("'%s' must be of class 'vip_pop_wide'", name),
+assert_vip_pop_3d <- function(x, name = deparse(substitute(x))) {
+    if(!class(x) == "vip_population_3d")
+        stop(sprintf("'%s' must be of class 'vip_population_3d'", name),
              call. = FALSE)
 }
 

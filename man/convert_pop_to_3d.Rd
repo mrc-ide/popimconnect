@@ -2,13 +2,13 @@
 % Please edit documentation in R/convert_formats.R
 \name{convert_pop_to_3d}
 \alias{convert_pop_to_3d}
-\title{Converts from the standard (long) vip_population format to the 3d format}
+\title{Converts from the standard (long) \code{vip_population} format to the 3d format}
 \usage{
 convert_pop_to_3d(pop_long)
 }
 \arguments{
 \item{pop_long}{object of class "vip_population" to be converted
-to the "wide" (3d) format}
+to the 3d format}
 }
 \value{
 object of S3 class \code{vip_pop_3d}: list of * the labels
@@ -39,6 +39,9 @@ the age of each cohort from column \code{age}
 the relevant birth cohort from column \code{pop_size}. All entries must
 be non-negative.
 }
+}
+\seealso{
+\code{\link[=convert_pop_to_3d]{convert_pop_to_3d()}}, \code{\link[vip:vip_population]{vip::vip_population()}}
 }
 \author{
 Tini Garske
