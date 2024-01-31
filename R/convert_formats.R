@@ -1,21 +1,22 @@
-## convert the population structure between Keith's wide and my long format
+## convert the population structure between Keith's wide and my long
+## format
 
-## constructor for an empty population in the wide format:
-## this is exactly Keith's format, including the idiosynchratic names.
+## constructor for an empty population in the wide format: this is
+## exactly Keith's format, including the idiosynchratic names.
 vip_pop_wide <- function(region = character(),
                          year_min = integer(), year_max = integer(),
                          age_min = 0, age_max = 100) {
 
-    assert_character(region)
+    vip:::assert_character(region)
     
-    assert_scalar_wholenumber(year_min)
-    assert_scalar_wholenumber(year_max)
-    assert_non_negative(year_max - year_min)
+    vip:::assert_scalar_wholenumber(year_min)
+    vip:::assert_scalar_wholenumber(year_max)
+    vip:::assert_non_negative(year_max - year_min)
 
-    assert_scalar_wholenumber(age_min)
-    assert_scalar_wholenumber(age_max)
-    assert_non_negative(age_min)
-    assert_non_negative(age_max - age_min)
+    vip:::assert_scalar_wholenumber(age_min)
+    vip:::assert_scalar_wholenumber(age_max)
+    vip:::assert_non_negative(age_min)
+    vip:::assert_non_negative(age_max - age_min)
 
     age <- age_min:age_max
     year <- year_min:year_max
@@ -54,7 +55,7 @@ vip_pop_wide <- function(region = character(),
 ##' @importFrom rlang .data
 convert_pop_to_wide <- function(pop_long) {
 
-    assert_population(pop_long)
+    vip:::assert_population(pop_long)
 
     ## setting up the structure:
     pop_wide <- vip_pop_wide(region = attributes(pop_long)$region,
@@ -96,11 +97,11 @@ convert_pop_to_long <- function(pop_wide) {
     assert_vip_pop_wide(pop_wide) ## just checking the class is correct.
 
     ## setting up the structure:
-    pop_long <- vip_population(region = pop_wide$region_labels,
-                               year_min = pop_wide$years_labels |> min(),
-                               year_max = pop_wide$years_labels |> max(),
-                               age_min = pop_wide$age_labels |> min(),
-                               age_max = pop_wide$age_labels |> max())
+    pop_long <- vip::vip_population(region = pop_wide$region_labels,
+                                    year_min = pop_wide$years_labels |> min(),
+                                    year_max = pop_wide$years_labels |> max(),
+                                    age_min = pop_wide$age_labels |> min(),
+                                    age_max = pop_wide$age_labels |> max())
     ## take off the columns to be filled in with data from pop_wide:
     pop_long <- pop_long |>
         dplyr::select(!tidyselect::any_of(c("immunity", "pop_size")))
