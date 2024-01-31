@@ -1,0 +1,16 @@
+Package: vipconnect
+Title: R package to convert between the population structures used in the YF model and in package vip
+Version: 0.0.0.9000
+Authors@R: 
+    person("Tini", "Garske", , "t.garske@imperial.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-8952-4710"))
+Description: To model the population immunity due to vaccination
+through time requires a structure to store data on the relevant
+details of an age-structured population, but different implementations
+use different structures. vipconnect provides functions to convert
+between the format used in the YF model (citation), and the format in
+package vip.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
