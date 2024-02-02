@@ -4,8 +4,8 @@
 ## constructor for an empty population in the wide format: this is
 ## exactly Keith's format, including the idiosynchratic names.
 vip_pop_3d <- function(region = character(),
-                         year_min = integer(), year_max = integer(),
-                         age_min = 0, age_max = 100) {
+                       year_min = integer(), year_max = integer(),
+                       age_min = 0, age_max = 100) {
 
     vip:::assert_character(region)
     
@@ -40,7 +40,7 @@ vip_pop_3d <- function(region = character(),
 
     class(pop_wide) <- c("vip_population_3d", "list")
 
-    pop_wide
+    validate_vip_pop_3d(pop_wide)
 }
 
 ##' Converts from the standard (long) `vip_population` format to the 3d format
