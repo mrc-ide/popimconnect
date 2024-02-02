@@ -1,5 +1,4 @@
 validate_vip_pop_3d <- function(x, name = deparse(substitute(x))) {
-    x <- vip_pop_3d(region = "UK", year_min = 2000, year_max = 2005)
 
     ## class:
     if(!inherits(x, "list")) stop(sprintf("'%s' is not a list and therefore cannot be coerced to class `vip_population_3d`.", name))
@@ -9,7 +8,6 @@ validate_vip_pop_3d <- function(x, name = deparse(substitute(x))) {
               c("region_labels", "years_labels", "age_labels",
                 "vacc_data", "pop_data")))
         stop(sprintf("'%s' must have list elements named 'region_labels', 'years_labels', 'age_labels', 'vacc_data', 'pop_data'", name), call. = FALSE)
-
 
     ## checking dimensions:
     n_regions <- length(x$region_labels)
@@ -26,17 +24,17 @@ validate_vip_pop_3d <- function(x, name = deparse(substitute(x))) {
     if(!all(
             identical(x$region_labels, dimnames(x$vacc_data)$region),
             identical(x$years_labels |> as.character(),
-                      dimnames(x$vacc_data$year)), 
+                      dimnames(x$vacc_data)$year),
             identical(x$age_labels |> as.character(),
-                      dimnames(x$vacc_data$age))))
+                      dimnames(x$vacc_data)$age)))
         stop("explicit labels and dimnames of vacc_data do not match")
 
     if(!all(
             identical(x$region_labels, dimnames(x$pop_data)$region),
             identical(x$years_labels |> as.character(),
-                      dimnames(x$pop_data$year)), 
+                      dimnames(x$pop_data)$year),
             identical(x$age_labels |> as.character(),
-                      dimnames(x$pop_data$age))))
+                      dimnames(x$pop_data)$age)))
         stop("explicit labels and dimnames of pop_data do not match")
 
     ## checking range of data in the arrays
@@ -45,7 +43,5 @@ validate_vip_pop_3d <- function(x, name = deparse(substitute(x))) {
     if(min(x$pop_data, na.rm = TRUE) < 0)
         stop("`pop_data` must be positive.")
 
-    class(x) <- c("vip_population_3d", "list")
-    
     x    
 }
