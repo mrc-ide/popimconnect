@@ -2,33 +2,33 @@
 % Please edit documentation in R/convert_formats.R
 \name{convert_pop_to_3d}
 \alias{convert_pop_to_3d}
-\title{Converts from the standard (long) \code{vip_population} format to the 3d format}
+\title{Converts from the standard (long) \code{popim_population} format to the 3d format}
 \usage{
 convert_pop_to_3d(pop_long)
 }
 \arguments{
-\item{pop_long}{object of class "vip_population" to be converted
+\item{pop_long}{object of class "popim_population" to be converted
 to the 3d format}
 }
 \value{
-object of S3 class \code{vip_pop_3d}: list of * the labels
+object of S3 class \code{popim_pop_3d}: list of * the labels
 for each dimension (region, year, age) * two 3d arrays
 vacc_data and pop_data holding the data stored in the columns
-\code{immunity} and \code{pop_size} in the input \code{vip_population} object
+\code{immunity} and \code{pop_size} in the input \code{popim_population} object
 }
 \description{
-Takes a vip_population object and converts it to the 3d format
+Takes a popim_population object and converts it to the 3d format
 that is based on 3d arrays for region / year / age.
 }
 \details{
-The S3 class \code{vip_pop_3d} is a list of 5 elements, the first 3
+The S3 class \code{popim_pop_3d} is a list of 5 elements, the first 3
 label the dimesions of the data, the last 3 are the 3d arrays
 holding the data that is stored in the \code{immunity} and \code{pop_size}
-columns of the \code{vip_population} object converted:
+columns of the \code{popim_population} object converted:
 \itemize{
 \item region_labels: character vector labelling the first dimension of
 the 3d arrays, it holds the labels from the \code{region} column of
-the \code{vip_population} object,
+the \code{popim_population} object,
 \item years_labels: integer vector labelling the 2nd dimension, it
 holds the calendar years from column \code{year}
 \item age_labels: integer vector labelling the 3rd dimension, holding
@@ -41,7 +41,7 @@ be non-negative.
 }
 }
 \seealso{
-\code{\link[=convert_pop_to_3d]{convert_pop_to_3d()}}, \code{\link[vip:vip_population]{vip::vip_population()}}
+\code{\link[=convert_pop_to_3d]{convert_pop_to_3d()}}, \code{\link[popim:popim_population]{popim::popim_population()}}
 }
 \author{
 Tini Garske

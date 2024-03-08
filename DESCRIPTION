@@ -1,5 +1,5 @@
-Package: vipconnect
-Title: R package to convert between the population structures used in the YF model and in package vip
+Package: popimconnect
+Title: R package to convert between the population structures used in the YF model and in package popim
 Version: 0.0.0.9000
 Authors@R: 
     person("Tini", "Garske", , "t.garske@imperial.ac.uk", role = c("aut", "cre"),
@@ -7,9 +7,9 @@ Authors@R:
 Description: To model the population immunity due to vaccination
     through time requires a structure to store data on the relevant
     details of an age-structured population, but different
-    implementations use different structures. vipconnect provides
+    implementations use different structures. popimconnect provides
     functions to convert between the format used in the YF model
-    (citation), and the format in package vip.
+    (citation), and the format in package popim.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -19,7 +19,7 @@ Imports:
     rlang,
     tidyr,
     tidyselect,
-    vip
+    popim
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

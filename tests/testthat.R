@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(vipconnect)
+library(popimconnect)
 
-test_check("vipconnect")
+test_check("popimconnect")

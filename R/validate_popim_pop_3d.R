@@ -1,7 +1,7 @@
-validate_vip_pop_3d <- function(x, name = deparse(substitute(x))) {
+validate_popim_pop_3d <- function(x, name = deparse(substitute(x))) {
 
     ## class:
-    if(!inherits(x, "list")) stop(sprintf("'%s' is not a list and therefore cannot be coerced to class `vip_population_3d`.", name))
+    if(!inherits(x, "list")) stop(sprintf("'%s' is not a list and therefore cannot be coerced to class `popim_population_3d`.", name))
 
     ## names of list elements:
     if(!identical(names(x),

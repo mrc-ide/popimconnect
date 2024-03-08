@@ -6,22 +6,22 @@ test_that("convert_pop_to_long fails for invalid inputs", {
     age_min = 0
     age_max = 3
 
-    pl <- vip::vip_population(region = my_regions,
+    pl <- popim::popim_population(region = my_regions,
                               year_min = year_min, year_max = year_max,
                               age_min = age_min, age_max = age_max)
     expect_error(convert_pop_to_long(pl))
 
 
-    pw <- vip_pop_3d(region = my_regions,
+    pw <- popim_pop_3d(region = my_regions,
                      year_min = year_min, year_max = year_max,
                      age_min = age_min, age_max = age_max)
 
-    class(pw) <- "data.frame" ## stripping the vip_population class attribute
+    class(pw) <- "data.frame" ## stripping the popim_population class attribute
 
     expect_error(convert_pop_to_long(pw))
 })
 
-test_that("converts a `vip_pop_3d`-class object initialised to 0 correctly", {
+test_that("converts a `popim_pop_3d`-class object initialised to 0 correctly", {
 
     my_regions <- c("FRA", "UK")
     year_min = 2001
@@ -29,11 +29,11 @@ test_that("converts a `vip_pop_3d`-class object initialised to 0 correctly", {
     age_min = 0
     age_max = 3
 
-    pl <- vip::vip_population(region = my_regions,
+    pl <- popim::popim_population(region = my_regions,
                          year_min = year_min, year_max = year_max,
                          age_min = age_min, age_max = age_max)
 
-    pw <- vip_pop_3d(region = my_regions,
+    pw <- popim_pop_3d(region = my_regions,
                      year_min = year_min, year_max = year_max,
                      age_min = age_min, age_max = age_max)
 
@@ -48,7 +48,7 @@ test_that("successive conversion from long to 3d to long gives the original", {
     age_min = 0
     age_max = 3
 
-    pl <- vip::vip_population(region = my_regions,
+    pl <- popim::popim_population(region = my_regions,
                               year_min = year_min, year_max = year_max,
                               age_min = age_min, age_max = age_max)
 
