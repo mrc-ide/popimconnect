@@ -6,20 +6,20 @@ test_that("convert_pop_to_3d fails for invalid inputs", {
     age_min = 0
     age_max = 3
 
-    pw <- vip_pop_3d(region = my_regions,
+    pw <- popim_pop_3d(region = my_regions,
                      year_min = year_min, year_max = year_max,
                      age_min = age_min, age_max = age_max)
     expect_error(convert_pop_to_3d(pw))
 
-    pl <- vip::vip_population(region = my_regions,
+    pl <- popim::popim_population(region = my_regions,
                               year_min = year_min, year_max = year_max,
                               age_min = age_min, age_max = age_max)
-    class(pl) <- "data.frame" ## stripping the vip_population class attribute
+    class(pl) <- "data.frame" ## stripping the popim_population class attribute
 
     expect_error(convert_pop_to_3d(pl))
 })
 
-test_that("convert_pop_to_3d converts a `vip_population` object initialised to 0 correctly", {
+test_that("convert_pop_to_3d converts a `popim_population` object initialised to 0 correctly", {
 
     my_regions <- c("FRA", "UK")
     year_min = 2001
@@ -27,18 +27,18 @@ test_that("convert_pop_to_3d converts a `vip_population` object initialised to 0
     age_min = 0
     age_max = 3
 
-    pl <- vip::vip_population(region = my_regions,
+    pl <- popim::popim_population(region = my_regions,
                               year_min = year_min, year_max = year_max,
                               age_min = age_min, age_max = age_max)
 
-    pw <- vip_pop_3d(region = my_regions,
+    pw <- popim_pop_3d(region = my_regions,
                      year_min = year_min, year_max = year_max,
                      age_min = age_min, age_max = age_max)
 
     expect_equal(pw, convert_pop_to_3d(pl)) 
 })
 
-test_that("convert_pop_to_3d converts a `vip_population` object with non-zero data correctly", {
+test_that("convert_pop_to_3d converts a `popim_population` object with non-zero data correctly", {
 
     my_regions <- c("FRA", "UK")
     year_min = 2001
@@ -46,7 +46,7 @@ test_that("convert_pop_to_3d converts a `vip_population` object with non-zero da
     age_min = 0
     age_max = 3
 
-    pl <- vip::vip_population(region = my_regions,
+    pl <- popim::popim_population(region = my_regions,
                               year_min = year_min, year_max = year_max,
                               age_min = age_min, age_max = age_max)
 

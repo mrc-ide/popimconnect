@@ -1,5 +1,5 @@
-test_that("vip_pop_3d returns an object of the correct structure", {
-    pop <- vip_pop_3d(region = "UK", year_min = 2000, year_max = 2005)
+test_that("popim_pop_3d returns an object of the correct structure", {
+    pop <- popim_pop_3d(region = "UK", year_min = 2000, year_max = 2005)
 
     expect_equal(names(pop), c("region_labels", "years_labels", "age_labels",
                                "vacc_data", "pop_data"))
@@ -13,9 +13,9 @@ test_that("vip_pop_3d returns an object of the correct structure", {
     expect_equal(pop$age_labels |> as.character(), dimnames(pop$vacc_data)$age)
 })
 
-test_that("vip_pop_3d fails for invalid inputs", {
-    expect_error(vip_pop_3d(2000, 2005))
-    expect_error(vip_pop_3d("UK", 18, 10, 0, 10))
-    expect_error(vip_pop_3d("UK", 2000:2005, 0, 100))
-    expect_error(vip_pop_3d("UK", 2000, 2005, -1, 5))
+test_that("popim_pop_3d fails for invalid inputs", {
+    expect_error(popim_pop_3d(2000, 2005))
+    expect_error(popim_pop_3d("UK", 18, 10, 0, 10))
+    expect_error(popim_pop_3d("UK", 2000:2005, 0, 100))
+    expect_error(popim_pop_3d("UK", 2000, 2005, -1, 5))
 })
